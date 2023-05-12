@@ -1,0 +1,25 @@
+.ticket-no {
+  position: absolute;
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  font-size: 1em;
+  background: rgb(164, 44, 124);
+  color: white;
+  text-align: center;
+  top: -12px;
+  right: 32px;
+
+}
+
+a {
+  text-decoration: none;
+  color: rgb(69, 143, 255);
+
+  &.active {
+    color: rgb(193, 55, 147)
+  }
+}
+
+
+

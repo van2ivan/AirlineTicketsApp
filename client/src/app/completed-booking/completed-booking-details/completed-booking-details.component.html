@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row" *ngIf="completedBooking">
+    <div class="col-8">
+      <div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="p-1 text-uppercase">Flight</div>
+                </th>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="p-1 text-uppercase">Price</div>
+                </th>
+                <!--<th scope="col" class="border-0 bg-light">
+                  <div class="p-1 text-uppercase">Total</div>
+                </th>-->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of completedBooking.bookingItems">
+                <th scope="row">
+                  <div class="p-2">
+                    {{item.flightNumber}}
+                    {{item.departureAirport}} - {{item.arrivalAirport}}
+                  </div>
+                </th>
+                <td class="align-middle"><strong>{{item.price | currency}}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="ng-light px-4 pt-3 text-uppercase font-weight-bold">
+        Booking Summary
+      </div>
+      <div class="p-4">
+        <ul class="list-unstyled mb-4">
+          <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Booking subtotal</strong>
+            <strong>{{completedBooking.subtotal}}</strong>
+          </li>
+          <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Luggage price</strong>
+            <strong>{{completedBooking.luggagePrice | currency}}</strong>
+          </li>
+          <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Total</strong>
+            <strong>{{completedBooking.total | currency}}</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

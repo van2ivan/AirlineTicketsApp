@@ -1,0 +1,56 @@
+[
+    {
+        "Code": "KBP",
+        "Name": "Boryspil International",
+        "City": "Kyiv",
+        "Country": "Ukraine",
+        "TimeZone": 3,
+        "Longtitude": 30.895485,
+        "Latitude": 50.34201
+    },
+    {
+        "Code": "MUC",
+        "Name": "Franz Joseph Strauss International",
+        "City": "Munich",
+        "Country": "Germany",
+        "TimeZone": 2,
+        "Longtitude": 11.782567,
+        "Latitude": 48.353705
+    },
+    {
+        "Code": "FRA",
+        "Name": "Frankfurt Main",
+        "City": "Frankfurt am Main",
+        "Country": "Germany",
+        "TimeZone": 2,
+        "Longtitude": 8.560692,
+        "Latitude": 50.036448
+    },
+    {
+        "Code": "JFK",
+       "Name": "John F.Kennedy International",
+        "City": "New York",
+        "Country": "United States",
+        "TimeZone": -4,
+        "Longtitude": -73.779821,
+        "Latitude": 40.641944
+    },
+    {
+        "Code": "CDG",
+        "Name": "Charles De Gaulle",
+        "City": "Paris",
+        "Country": "France",
+        "TimeZone": 2,
+        "Longtitude": 2.566492,
+        "Latitude": 49.006703
+    },
+    {
+        "Code": "FCO",
+        "Name": "Rome–Fiumicino International",
+        "City": "Rome",
+        "Country": "Italy",
+        "TimeZone": 2,
+        "Longtitude": 12.251480,
+        "Latitude": 41.793847
+    }
+   ]

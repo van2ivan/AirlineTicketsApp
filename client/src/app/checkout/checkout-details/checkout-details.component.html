@@ -1,0 +1,31 @@
+<div class="mt-4" [formGroup]="checkoutForm">
+  <div class="d-flex justify-content-between align-items-center">
+    <h4>Passanger details</h4>
+    <button (click)="saveUserDetails()" [disabled]="!checkoutForm.get('detailsForm').valid || !checkoutForm.get('detailsForm').dirty" class="btn btn-outline-success mb-3">
+      Save your Name as default
+    </button>
+  </div>
+  <div class="row" formGroupName="detailsForm">
+    <div class="form-group col-6">
+      <app-text-input [label]="'First Name'" formControlName="firstName"></app-text-input>
+    </div>
+    <div class="form-group col-6">
+      <app-text-input [label]="'Last Name'" formControlName="lastName"></app-text-input>
+    </div>
+    <div class="form-group col-6">
+      <app-text-input [label]="'Passport'" formControlName="passport"></app-text-input>
+    </div>
+    <div class="form-group col-6">
+      <app-text-input [label]="'Citizenship'" formControlName="citizenship"></app-text-input>
+    </div>
+  </div>
+</div>
+<div class="float-none d-flex justify-content-between flex-column flex-lg-row -mb-5">
+  <button class="btn btn-outline-primary" routerLink="/booking">
+    <i class="fa fa-angle-left"></i> Back to bookings
+  </button>
+  <button cdkStepperNext class="btn btn-outline-primary" ruterLink="/booking">
+    Luggage <i class="fa fa-angle-right"></i>
+  </button>
+</div>
+

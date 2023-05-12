@@ -1,0 +1,18 @@
+
+
+#main-flight-info{
+  border-radius: 25px;
+  border-color: blueviolet;
+}
+
+#main-flight-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-color: blueviolet;
+  border-radius: 25px;
+  border-width: 100px;
+  //class="d-flex flex-row justify-content-between border rounded-3 border-secondary mt-3 pt-3 pb-3"
+
+}
+

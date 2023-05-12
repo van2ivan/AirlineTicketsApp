@@ -1,0 +1,31 @@
+<div *ngIf="arrTime > now" id="main-flight-block" class="d-flex flex-row justify-content-between border border-3 rounded-3  border-primary mt-3 pt-3 pb-3">
+  <div id="company-name" class="d-flex flex-column justify-content-center border border-secondary ml-3">
+      {{flight.company}}
+  </div>
+  <div id="main-flight-info" class="d-flex flex-column justify-content-center border-primary">
+    <div class="h6 d-flex flex-row justify-content-center border border-secondary">
+      {{flight.departureAirport.name}}
+      &nbsp;
+      <i class="h6 fa fa-long-arrow-right mt-1" aria-hidden="true"></i>
+      &nbsp;
+      {{flight.arrivalAirport.name}}
+    </div>
+    <div class="d-flex flex-row justify-content-center border border-secondary">
+      {{flight.departureTime | date: 'medium'}}
+      &nbsp;
+      <i class="fa fa-clock-o mt-1" aria-hidden="true"></i>
+      &nbsp;
+      {{flight.arrivalTime | date: 'medium'}}
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center border border-secondary mr-3">
+    <div class="border border-secondary">
+      Price
+      {{flight.price | currency}}
+    </div>
+    <div class="d-flex justify-content-center">
+      <button  routerLink="/flights/{{flight.id}}" type="button" class="btn btn-outline secondary fa fa-plane mr-2"></button>
+    </div>
+  </div>
+</div>
+

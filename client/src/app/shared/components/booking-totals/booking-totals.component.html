@@ -1,0 +1,20 @@
+<div class="ng-light px-4 pt-3 text-uppercase font-weight-bold">
+  Booking Summary
+</div>
+<div class="p-4">
+  <p class="font-italic mb-4">You can choose luggage option in addition</p>
+  <ul class="list-unstyled mb-4" *ngIf="(bookingTotal$ | async) as totals">
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Booking subtotal</strong>
+      <strong>{{totals.subtotal}}</strong>
+    </li>
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Luggage</strong>
+      <strong>{{totals.luggage}}</strong>
+    </li>
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total</strong>
+      <strong>{{totals.total}}</strong>
+    </li>
+  </ul>
+</div>

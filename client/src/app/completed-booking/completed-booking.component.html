@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover" style="cursor: pointer;">
+        <thead class="thead-light">
+          <tr>
+            <th>Booking</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let completedBooking of completedBookings"
+          routerLink="/completedBooking/{{completedBooking.id}}">
+            <th>No.{{completedBooking.id}}</th>
+            <td>{{completedBooking.bookingDate | date: 'medium'}}</td>
+            <td>{{completedBooking.total | currency}}</td>
+            <td>{{completedBooking.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

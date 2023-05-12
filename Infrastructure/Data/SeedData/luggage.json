@@ -1,0 +1,37 @@
+[
+    {
+        "Name": "No luggage",
+        "Description": "Free hands",
+        "Price": 0.00
+    },
+    {
+        "Name": "Compact journey",
+        "Description": "Tiny luggage up to 5kg for 1 flight",
+        "Price": 10.00
+    },
+    {
+        "Name": "Comfort journey",
+        "Description": "Suitcase up to 20kg for 1 flight",
+        "Price": 30.00
+    },
+    {
+        "Name": "Compact trip",
+        "Description": "Tiny luggage up to 5kg for 2 flights",
+        "Price": 17.00
+    },
+    {
+        "Name": "Comfort trip",
+        "Description": "Suitcase up to 20kg for for 2 flights",
+        "Price": 55.00
+    },
+    {
+        "Name": "Compact travel",
+        "Description": "Tiny luggage up to 5kg for unlimited flights",
+        "Price": 75.00
+    },
+    {
+        "Name": "Comfort travel",
+        "Description": "Suitcase up to 20kg for unlimited flights",
+        "Price": 300.00
+    }
+]

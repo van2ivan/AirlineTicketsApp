@@ -1,0 +1,19 @@
+<div class="container mt-2">
+  <div *ngIf="(booking$ | async) === null">
+    <p>No tickets yet</p>
+  </div>
+
+  <div *ngIf="booking$ | async">
+    <div class="container pb-5">
+      <app-booking-summary
+        (remove)="removeTicketFromBooking($event)"
+      ></app-booking-summary>
+      <div class="col-6 offset-6">
+        <app-booking-totals></app-booking-totals>
+        <a routerLink="/checkout" class="btn btn-outline-primary btn-block py-2">
+          Checkout
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

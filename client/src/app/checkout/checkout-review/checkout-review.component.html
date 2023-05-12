@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <app-booking-summary [isBooking]=false></app-booking-summary>
+</div>
+<div class="float-none d-flex justify-content-between flex-column flex-lg-row -mb-5">
+  <button class="btn btn-outline-primary" cdkStepperPrevious>
+    <i class="fa fa-angle-left"></i>Back to luggage
+  </button>
+  <button (click)="createPaymentIntent()" cdkStepperNext class="btn btn-outline-primary" ruterLink="/booking">
+    Payment <i class="fa fa-angle-right"></i>
+  </button>
+</div>

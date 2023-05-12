@@ -1,0 +1,64 @@
+[
+    {
+     "Name": "Boeing 737-800 UR-PSY",
+     "PictureUrl": "Images\/Planes\/Boeing737.jpg",
+     "CompanyId": 1,
+     "EconomyClassSeats": 115,
+     "BusinessClassSeats": 16,
+     "FirstClassSeats": 0
+    },
+    {
+        "Name": "Boeing 737-800 UR-AXM",
+        "PictureUrl": "Images\/Planes\/Boeing737.jpg",
+        "CompanyId": 1,
+        "Seats": 147
+    },
+    {
+     "Name": "Airbus A320 OE-LBL",
+     "PictureUrl": "Images\/Planes\/AirbusA320.jpg",
+     "CompanyId": 3,
+     "Seats": 139
+    },
+    {
+        "Name": "Airbus A350 OE-TPM",
+        "PictureUrl": "Images\/Planes\/AirbusA350.jpg",
+        "CompanyId": 3,
+        "Seats": 267
+    },
+    {
+     "Name": "Airbus A320 D-AXQA",
+     "PictureUrl": "Images\/Planes\/AirbusA320.jpg",
+     "CompanyId": 2,
+     "Seats": 145
+    }, 
+    {
+        "Name": "Airbus A320 D-AILA",
+        "PictureUrl": "Images\/Planes\/AirbusA320.jpg",
+        "CompanyId": 2,
+        "Seats": 139
+    },
+    {
+        "Name": "Airbus A320 F-ASHQ",
+        "PictureUrl": "Images\/Planes\/AirbusA320.jpg",
+        "CompanyId": 4,
+        "Seats": 147
+    },
+    {
+        "Name": "Airbus A320 F-GHNM",
+        "PictureUrl": "Images\/Planes\/AirbusA320.jpg",
+        "CompanyId": 4,
+        "Seats": 143
+    },
+    {
+        "Name": "Airbus A380 F-GHKA",
+        "PictureUrl": "Images\/Planes\/AirbusA380.jpg",
+        "CompanyId": 2,
+        "Seats": 389
+    },
+    {
+        "Name": "Airbus A350 AT-PLA",
+        "PictureUrl": "Images\/Planes\/AirbusA350.jpg",
+        "CompanyId": 5,
+        "Seats": 257
+    }
+   ]
