@@ -42,9 +42,6 @@ export class FlightsService {
       // map - one of RxJS methods
   }
 
-  /*getCompanies(){
-    return this.http.get<ICompanyName[]>(this.baseUrl + 'Companies')
-  }*/
   getFlight(id: number){
     return this.http.get<IFlight>(this.baseUrl + 'flights/' + id)
   }

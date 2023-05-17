@@ -9,7 +9,7 @@ namespace Core.Specifications.EntitySpecificationParams
     {
         private const int MaxPageSize = 10;
         public int PageIndex { get; set; } = 1;
-        private int _pageSize = 5;
+        private int _pageSize = 3;
         public int PageSize
         {
             get => _pageSize;

@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FlightsService } from './flights.service';
 import { IFlight } from '../shared/models/EntitiyInterfaces/flight';
-import { ICompanyName } from '../shared/models/EntitiyInterfaces/companyName';
+import { ICompany } from '../shared/models/EntitiyInterfaces/companyName';
 import { IAirportName } from '../shared/models/EntitiyInterfaces/airportName';
 import { FlightParams } from '../shared/models/flightParams';
 
@@ -14,7 +14,7 @@ export class FlightsComponent implements OnInit{
   @ViewChild('search', {static: false}) searchTerm: ElementRef;
   flights: IFlight[];
   airports: IAirportName[];
-  companies: ICompanyName[];
+  companies: ICompany[];
   flightParams = new FlightParams();
   totalCount: number;
 
@@ -25,6 +25,8 @@ export class FlightsComponent implements OnInit{
     {name: 'Departure Ariport Z-A', value: 'departureAirportNameDesc'},
     {name: 'Arrival Ariport A-Z', value: 'arrivalAirportNameAsc'},
     {name: 'Arrival Ariport Z-A', value: 'arrivalAirportNameDesc'},
+    {name: 'Departure Date: Soon', value: 'departureTimeAsc'},
+    {name: 'Departure Date: Later', value: 'departureTimeDesc'},
   ];
 
 
@@ -59,7 +61,7 @@ export class FlightsComponent implements OnInit{
 
   getAirports(){
     this.flightService.getAirports().subscribe({
-      next: (response) => this.airports = [{id: 0, name: 'All'}, ...response],
+      next: (response) => this.airports = [{id: 0, name: "All"}, ...response],
       error: (error) => console.log(error)
     })
   }
@@ -99,8 +101,4 @@ export class FlightsComponent implements OnInit{
     this.flightParams = new FlightParams();
     this.getFlights();
   }
-  /*onCompanySelected(companyId: number){
-    this.companyIdSelected = companyId;
-    this.getCompanies();
-  }*/
 }

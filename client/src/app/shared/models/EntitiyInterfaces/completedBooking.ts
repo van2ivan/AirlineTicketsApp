@@ -17,7 +17,7 @@ export interface ICompletedBooking{
   subtotal: number
   status: string
   total: number
-} 
+}
 
 export interface IBookingItem {
   flightId: number

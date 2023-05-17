@@ -1,30 +1,42 @@
-<div *ngIf="arrTime > now" id="main-flight-block" class="d-flex flex-row justify-content-between border border-3 rounded-3  border-primary mt-3 pt-3 pb-3">
-  <div id="company-name" class="d-flex flex-column justify-content-center border border-secondary ml-3">
-      {{flight.company}}
+<div *ngIf="arrTime > now" id="main-flight-block" class="d-flex flex-row justify-content-between mt-4 pt-3 pb-3" style="border: 2px solid #5599ff; box-shadow: 0px 0px 0px 2px #8ab7fb;">
+  <div id="company-name" class="d-flex flex-column justify-content-center align-items-center ml-4">
+      <img src="{{flight.company.pictureUrl}}" style="max-width: 50px;">
+      <div style="font-size: 15px;">{{flight.company.name}}</div>
   </div>
-  <div id="main-flight-info" class="d-flex flex-column justify-content-center border-primary">
-    <div class="h6 d-flex flex-row justify-content-center border border-secondary">
+  <div id="main-flight-info" class="d-flex flex-column justify-content-center" >
+    <div class="h6 d-flex flex-row justify-content-center" style="font-size: 18px;">
+
       {{flight.departureAirport.name}}
       &nbsp;
       <i class="h6 fa fa-long-arrow-right mt-1" aria-hidden="true"></i>
       &nbsp;
       {{flight.arrivalAirport.name}}
+
     </div>
-    <div class="d-flex flex-row justify-content-center border border-secondary">
-      {{flight.departureTime | date: 'medium'}}
-      &nbsp;
-      <i class="fa fa-clock-o mt-1" aria-hidden="true"></i>
-      &nbsp;
-      {{flight.arrivalTime | date: 'medium'}}
+    <div class="d-flex flex-row justify-content-center">
+        <img src="../../../assets/images/takeoff-plane.png" class="mr-3" style="max-width: 30px; max-height: 30px;">
+      <div class="d-flex flex-column justify-content-center align-items-center mr-2">
+        <div>{{flight.departureTime | date: 'fullDate'}}</div>
+        <div>{{flight.departureTime | date: 'shortTime'}}</div>
+      </div>
+      <div class="mt-2">
+        &nbsp;
+        <i class="fa fa-clock-o mt-1" aria-hidden="true"></i>
+        &nbsp;
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center ml-2">
+        <div>{{flight.arrivalTime | date: 'fullDate'}}</div>
+        <div>{{flight.arrivalTime | date: 'shortTime'}}</div>
+      </div>
+      <img src="../../../assets/images/plane-landing.png" class="ml-3" style="max-width: 30px; max-height: 30px;">
     </div>
   </div>
-  <div class="d-flex flex-column justify-content-center border border-secondary mr-3">
-    <div class="border border-secondary">
-      Price
-      {{flight.price | currency}}
+  <div class="d-flex flex-column justify-content-center mr-3">
+    <div class="d-flex flex-row justify-content-center">
+      <strong style="font-size: large;">{{flight.price | currency}}</strong>
     </div>
     <div class="d-flex justify-content-center">
-      <button  routerLink="/flights/{{flight.id}}" type="button" class="btn btn-outline secondary fa fa-plane mr-2"></button>
+      <button  routerLink="/flights/{{flight.id}}" type="button" class="btn btn-outline-primary">Choose flight</button>
     </div>
   </div>
 </div>

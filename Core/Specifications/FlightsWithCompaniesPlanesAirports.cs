@@ -13,7 +13,7 @@ namespace Core.Specifications
             : base(x =>
                 (string.IsNullOrEmpty(flightParams.Search) || x.ArrivalAirport.City.ToLower().Contains(flightParams.Search) ||
                 x.DepartureAirport.City.ToLower().Contains(flightParams.Search) || x.ArrivalAirport.Country.ToLower().Contains(flightParams.Search) ||
-                x.DepartureAirport.Country.ToLower().Contains(flightParams.Search)) &&
+                x.DepartureAirport.Country.ToLower().Contains(flightParams.Search) || x.DepartureTime.ToString().Contains(flightParams.Search)) &&
                 (!flightParams.ArrivalAirportId.HasValue ||
                 x.ArrivalAirportId == flightParams.ArrivalAirportId) &&
                 (!flightParams.DepartureAirportId.HasValue ||
@@ -48,6 +48,12 @@ namespace Core.Specifications
                         break;
                     case "arrivalAirportNameDesc":
                         AddOrderByDescending(x => x.ArrivalAirport.Name);
+                        break;
+                    case "departureTimeAsc":
+                        AddOrderBy(x => x.DepartureTime);
+                        break;
+                    case "departureTimeDesc":
+                        AddOrderByDescending(x => x.DepartureTime);
                         break;
                     default:
                         AddOrderBy(x => x.ArrivalAirport.Name);

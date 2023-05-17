@@ -24,5 +24,6 @@ namespace Core.Entities
         public Airport ArrivalAirport { get; set; }
         public int ArrivalAirportId { get; set; }
         public decimal Price { get; set; }
+        //public int Seats { get; set; }
     }
 }

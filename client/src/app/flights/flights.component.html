@@ -11,7 +11,14 @@
         </option>
       </select>
 
-      <h5 class="text-primary"  style="margin-left: 50px;">DepartureAirport</h5>
+      <!--<h5 class="text-primary"  style="margin-left: 50px;">DepartureAirport</h5>
+      <select class="custom-select mb-3" (change)="onDepartureAirportSelected($event.target.value)">
+        <option *ngFor="let airport of airports"
+        [class.active]="airport.id === this.flightParams.departureAirportId"
+        [value]="airport.id"
+        > {{airport.name}}
+        </option>
+      </select>-->
       <ul class="list-group my-3">
         <li class="list-group-item"
         *ngFor="let airport of airports"
@@ -22,7 +29,14 @@
           {{airport.name}}
         </li>
       </ul>
-
+      <!--<h5 class="text-primary"  style="margin-left: 50px;">DepartureAirport</h5>
+      <select class="custom-select mb-3" (change)="onArrivalAirportSelected($event.target.value)">
+        <option *ngFor="let airport of airports"
+        [class.active]="airport.id === this.flightParams.arrivalAirportId"
+        [value]="airport.id"
+        > {{airport.name}}
+        </option>
+      </select>-->
       <h5 class="text-primary"  style="margin-left: 60px;">ArrivalAirport</h5>
       <ul class="list-group my-3">
         <li class="list-group-item"
@@ -47,7 +61,7 @@
         ></app-paging-header>
 
         <div class="form-inline mt-2">
-          <input (keyup.enter)="onSearch()" class="form-control mr-2" #search style="width: 300px" placeholder="Find by country or city"
+          <input (keyup.enter)="onSearch()" class="form-control mr-2" #search style="width: 312px" placeholder="Find by country/city/date(YYYY-MM-DD)"
            type="text">
            <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
            <button (click)="onReset()" class="btn btn-outline-primary ml-2 my-2">Reset</button>

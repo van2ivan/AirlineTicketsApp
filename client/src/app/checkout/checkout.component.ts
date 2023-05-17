@@ -11,43 +11,39 @@ import { IBookingTotals } from '../shared/models/EntitiyInterfaces/booking';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit{
-  bookingTotals$: Observable<IBookingTotals>
-  checkoutForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private accountService: AccountService,
     private bookingService: BookingService){
 
   }
-  ngOnInit(){
-    this.createCheckoutForm();
+  ngOnInit(): void {
     this.getDetailsFormValues();
     this.getLuggageOptionValue();
-    this.bookingTotals$ = this.bookingService.bookingTotal$;
+    //this.bookingTotals$ = this.bookingService.bookingTotal$;
   }
-  createCheckoutForm(){
-    this.checkoutForm = this.formBuilder.group({
+
+    checkoutForm = this.formBuilder.group({
       detailsForm: this.formBuilder.group({
-        firstName: [null, Validators.required],
-        lastName: [null, Validators.required],
-        passport: [null, Validators.required],
-        citizenship: [null, Validators.required]
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        passport: ['', Validators.required],
+        citizenship: ['', Validators.required]
       }),
       luggageForm: this.formBuilder.group({
-        luggageOption: [null, Validators.required]
+        luggageOption: ['', Validators.required]
       }),
       paymentForm: this.formBuilder.group({
-        nameOnCard: [null, Validators.required]
+        nameOnCard: ['', Validators.required]
       })
     });
-  }
+
 
   getDetailsFormValues(){
     this.accountService.getUserDetails().subscribe({
-      next: (details) => {
-        if(details){
-          this.checkoutForm.get('detailsForm').patchValue(details);
-        }
+      next: details => {
+          details && this.checkoutForm.get('detailsForm')?.patchValue(details);
+
     },
       error: (error) => {
         console.log(error);
@@ -57,8 +53,8 @@ export class CheckoutComponent implements OnInit{
 
   getLuggageOptionValue(){
     const booking = this.bookingService.getCurrentBookingValue();
-    if(booking.luggageOptionId != null){
-      this.checkoutForm.get('luggageForm').get('luggageOption').patchValue(booking.luggageOptionId.toString());
+    if(booking && booking.luggageOptionId){
+      this.checkoutForm.get('luggageForm')?.get('luggageOption')?.patchValue(booking.luggageOptionId.toString());
     }
   }
 }

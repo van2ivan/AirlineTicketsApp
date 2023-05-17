@@ -12,11 +12,15 @@
             {{flight.arrivalAirport.name}}
           </div>
           <div class="d-flex flex-row justify-content-center">
-            {{flight.departureTime | date: 'medium'}}
-            &nbsp;
-            <i class="fa fa-clock-o mt-1" aria-hidden="true"></i>
-            &nbsp;
-            {{flight.arrivalTime | date: 'medium'}}
+            <div class="d-flex flex-column justify-content-center align-items-center mr-3">
+              <div>{{flight.departureTime | date: 'fullDate'}}</div>
+              <div>{{flight.departureTime | date: 'shortTime'}}</div>
+            </div>
+            <div><i class="fa fa-clock-o mt-1" aria-hidden="true"></i></div>
+            <div class="d-flex flex-column justify-content-center align-items-center ml-3">
+              <div>{{flight.arrivalTime | date: 'fullDate'}}</div>
+              <div>{{flight.arrivalTime | date: 'shortTime'}}</div>
+            </div>
           </div>
         </div>
       </div>

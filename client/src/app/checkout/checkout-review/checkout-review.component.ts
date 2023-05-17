@@ -10,18 +10,14 @@ import { IBooking } from 'src/app/shared/models/EntitiyInterfaces/booking';
   templateUrl: './checkout-review.component.html',
   styleUrls: ['./checkout-review.component.scss']
 })
-export class CheckoutReviewComponent implements OnInit{
-  @Input() appStepper: CdkStepper;
-  booking$: Observable<IBooking>;
+export class CheckoutReviewComponent{
+  @Input() appStepper?: CdkStepper;
+
 
   constructor(private bookingSerivce: BookingService,
     private toastr: ToastrService){
 
   }
-  ngOnInit(){
-    this.booking$ = this.bookingSerivce.booking$;
-  }
-
   createPaymentIntent(){
     return this.bookingSerivce.createPaymentIntent().subscribe({
       next: (response: any) => {

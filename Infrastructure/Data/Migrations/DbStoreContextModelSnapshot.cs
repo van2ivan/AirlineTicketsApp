@@ -61,6 +61,18 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ClientSecret")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LuggageOptionId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("LuggagePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Bookings");

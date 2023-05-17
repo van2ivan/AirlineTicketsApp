@@ -75,12 +75,11 @@ export class CheckoutPaymentComponent implements OnInit {
   async submitCompletedBooking() {
     this.loading = true;
     const booking = this.bookingService.getCurrentBookingValue();
-    if (!booking) throw new Error('Cannot get booking');
     try {
       const createdCompletedBooking = await this.createCompletedBooking(booking);
       const paymentResult = await this.confirmPaymentWithStripe(booking);
       if (paymentResult.paymentIntent) {
-        this.bookingService.deleteBooking(booking);
+        this.bookingService.deleteLocalBooking();
         const navigationExtras: NavigationExtras = {state: createdCompletedBooking};
         this.router.navigate(['checkout/success'], navigationExtras);
       } else {

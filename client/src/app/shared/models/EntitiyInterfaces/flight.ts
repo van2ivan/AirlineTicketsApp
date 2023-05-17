@@ -1,4 +1,5 @@
 import { IAirport } from "./airport";
+import { ICompany } from "./companyName";
 
 export interface IFlight {
   id: number;
@@ -9,7 +10,7 @@ export interface IFlight {
   actualDepartureTime: string
   actualArrivalTime: string
   plane: string
-  company: string
+  company: ICompany
   departureAirport: IAirport
   arrivalAirport: IAirport
   price: number

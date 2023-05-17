@@ -15,7 +15,7 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Flight, FlightToReturnDTO>()
-            .ForMember(x => x.Company, x => x.MapFrom(x => x.Company.Name))
+            //.ForMember(x => x.Company, x => x.MapFrom(x => x.Company.Name))
             .ForMember(x => x.Plane, x => x.MapFrom(x => x.Plane.Name));
             //.ForMember(x => x.DepartureAirport, x => x.MapFrom(x => x.DepartureAirport.Name))
             //.ForMember(x => x.ArrivalAirport, x => x.MapFrom(x => x.ArrivalAirport.Name));

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { ICompany } from './companyName';
 
 export interface IBooking {
   id: string;
@@ -6,7 +7,7 @@ export interface IBooking {
   clientSecret?: string;
   paymentIntentId?: string;
   luggageOptionId?: number;
-  luggagePrice?: number;
+  luggagePrice: number;
 }
 
 export interface ITicket{
@@ -39,4 +40,5 @@ export interface IPassengerCredentials{
 export class Booking implements IBooking{
   id = uuidv4();
   tickets: ITicket[] = [];
+  luggagePrice = 0;
 }

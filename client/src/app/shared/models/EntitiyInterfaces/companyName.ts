@@ -1,4 +1,5 @@
-export interface ICompanyName {
+export interface ICompany {
     id: number;
     name: string;
+    pictureUrl: string;
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(DbStoreContext))]
-    [Migration("20230504133346_BookingEntities12May2023")]
-    partial class BookingEntities12May2023
+    [Migration("20230515145200_05May2023")]
+    partial class _05May2023
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,18 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ClientSecret")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LuggageOptionId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("LuggagePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Bookings");
@@ -102,10 +114,15 @@ namespace Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CompletedBookingId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompletedBookingId");
 
                     b.ToTable("BookingItems");
                 });
@@ -291,7 +308,12 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.CompletedBookingAggregate.BookingItem", b =>
                 {
-                    b.OwnsOne("Core.Entities.CompletedBookingAggregate.FlightBooked", "Flight", b1 =>
+                    b.HasOne("Core.Entities.CompletedBookingAggregate.CompletedBooking", null)
+                        .WithMany("BookingItems")
+                        .HasForeignKey("CompletedBookingId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.OwnsOne("Core.Entities.CompletedBookingAggregate.FlightBooked", "FlightBooked", b1 =>
                         {
                             b1.Property<int>("BookingItemId")
                                 .HasColumnType("int");
@@ -331,7 +353,7 @@ namespace Infrastructure.Data.Migrations
                                 .HasForeignKey("BookingItemId");
                         });
 
-                    b.Navigation("Flight");
+                    b.Navigation("FlightBooked");
                 });
 
             modelBuilder.Entity("Core.Entities.CompletedBookingAggregate.CompletedBooking", b =>
@@ -339,52 +361,6 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Core.Entities.CompletedBookingAggregate.LuggageOption", "LuggageOption")
                         .WithMany()
                         .HasForeignKey("LuggageOptionId");
-
-                    b.OwnsMany("Core.Entities.CompletedBookingAggregate.FlightBooked", "FlightsBooked", b1 =>
-                        {
-                            b1.Property<int>("CompletedBookingId")
-                                .HasColumnType("int");
-
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("int");
-
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
-
-                            b1.Property<DateTime>("ActualArrivalTime")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<DateTime>("ActualDepartureTime")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<string>("ArrivalAirport")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<DateTime>("ArrivalTime")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<string>("Company")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("DepartureAirport")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<DateTime>("DepartureTime")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<int>("FlightId")
-                                .HasColumnType("int");
-
-                            b1.Property<int>("FlightNumber")
-                                .HasColumnType("int");
-
-                            b1.HasKey("CompletedBookingId", "Id");
-
-                            b1.ToTable("CompletedBookings_FlightsBooked");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CompletedBookingId");
-                        });
 
                     b.OwnsOne("Core.Entities.CompletedBookingAggregate.Details", "BookingDetails", b1 =>
                         {
@@ -412,8 +388,6 @@ namespace Infrastructure.Data.Migrations
                         });
 
                     b.Navigation("BookingDetails");
-
-                    b.Navigation("FlightsBooked");
 
                     b.Navigation("LuggageOption");
                 });
@@ -488,6 +462,11 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Flights");
 
                     b.Navigation("Planes");
+                });
+
+            modelBuilder.Entity("Core.Entities.CompletedBookingAggregate.CompletedBooking", b =>
+                {
+                    b.Navigation("BookingItems");
                 });
 
             modelBuilder.Entity("Core.Entities.Plane", b =>

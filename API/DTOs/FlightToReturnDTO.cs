@@ -16,7 +16,7 @@ namespace API.DTOs
         public DateTime ActualDepartureTime { get; set; }
         public DateTime ActualArrivalTime { get; set; }
         public string Plane { get; set; }
-        public string Company { get; set; }
+        public Company Company { get; set; }
         public Airport DepartureAirport { get; set; }
         public Airport ArrivalAirport { get; set; }
         public decimal Price { get; set; }

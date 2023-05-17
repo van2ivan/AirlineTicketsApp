@@ -2,31 +2,31 @@
     {
      "Name": "Ukraine International",
      "FlightCode": "PS",
-     "PictureUrl": "Static\/Images\/UkraineInternational.png",
+     "PictureUrl": "..\/..\/..\/..\/..\/Infrastructure\/Data\/Static\/Images\/UkraineInternational.png",
      "Rating": 4.40
     },
     {
      "Name": "Lufthansa",
      "FlightCode": "LH",
-     "PictureUrl": "Static\/Images\/Lufthansa.png",
+     "PictureUrl": "..\/..\/..\/..\/..\/Infrastructure\/Data\/Static\/Images\/Lufthansa.png",
      "Rating": 4.45
     },
     {
      "Name": "Austrian",
      "FlightCode": "OS",
-     "PictureUrl": "Static\/Images\/Austrian.png",
+     "PictureUrl": "..\/..\/..\/..\/..\/Infrastructure\/Data\/Static\/Images\/Austrian.png",
      "Rating": 4.25
     },
     {
      "Name": "AirFrance",
      "FlightCode": "AF",
-     "PictureUrl": "Static\/Images\/AirFrance.png",
+     "PictureUrl": "..\/..\/..\/..\/..\/Infrastructure\/Data\/Static\/Images\/AirFrance.png",
      "Rating": 4.70
     },
     {
      "Name": "American Airlines",
      "FlightCode": "AA",
-     "PictureUrl": "Static\/Images\/AmericanAirlines.png",
+     "PictureUrl": "..\/..\/..\/..\/..\/Infrastructure\/Data\/Static\/Images\/AmericanAirlines.png",
      "Rating": 4.35
     }
 
